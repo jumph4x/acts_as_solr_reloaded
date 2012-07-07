@@ -84,7 +84,8 @@ namespace :solr do
     batch_size          = ENV['BATCH'].to_i.nonzero? || 300
     debug_output        = env_to_bool("DEBUG", false)
 
-    RAILS_DEFAULT_LOGGER.level = ActiveSupport::BufferedLogger::INFO unless debug_output
+    RAILS_DEFAULT_LOGGER.level = 0
+    Rails.logger.level = 0
 
     if start_server
       puts "Starting Solr server..."
